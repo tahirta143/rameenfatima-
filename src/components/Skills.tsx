@@ -7,14 +7,14 @@ export default function Skills() {
   const primarySkills = [
     { name: 'Adobe Illustrator', level: 92, category: 'Design Software' },
     { name: 'Product Image Design (Amazon Infographics)', level: 95, category: 'Product Graphics' },
-    { name: 'Canva Pro', level: 95, category: 'Visual Content Tool' },
+    { name: 'Canva Pro', level: 95, category: 'Graphic Design Tool' },
     { name: 'Shopify Store Design', level: 90, category: 'eCommerce Design' },
     { name: 'WordPress Website Design', level: 75, category: 'Learning Service', isLearning: true },
   ];
 
   const softSkills = [
-    { name: 'Communication', desc: 'Clear client liaison & project understanding', icon: MessageSquare },
-    { name: 'Time Management', desc: 'On-time delivery for design projects & deadlines', icon: Clock },
+    { name: 'Client Collaboration', desc: 'Precise brief analysis & active project communication', icon: MessageSquare },
+    { name: 'Project Management', desc: 'On-time delivery & strict adherence to design deadlines', icon: Clock },
   ];
 
   const languages = [
@@ -28,7 +28,7 @@ export default function Skills() {
         
         {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/30 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-neutral-800 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
             <Sparkles className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
             <span>Expertise Matrix</span>
           </div>
@@ -36,14 +36,14 @@ export default function Skills() {
             Design Skills &amp; Languages
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-medium">
-            Mastering graphic tools, efficient workflow management, and clear communication.
+            Mastering Adobe vector software, e-commerce layout strategies, and client-focused project execution.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Main Skills */}
-          <div className="lg:col-span-7 space-y-6 rounded-3xl bg-white dark:bg-[#121824] p-8 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md">
+          <div className="lg:col-span-7 space-y-6 rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 shadow-sm">
             <h3 className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2 mb-6">
               <Layers className="w-5 h-5 text-[#7c3aed] dark:text-[#8b5cf6]" />
               Technical Design Skills
@@ -63,7 +63,7 @@ export default function Skills() {
                   <span className="font-extrabold text-[#7c3aed] dark:text-[#8b5cf6]">{skill.level}%</span>
                 </div>
 
-                <div className="h-3 w-full rounded-full bg-slate-100 dark:bg-slate-900 overflow-hidden p-0.5 border border-slate-200 dark:border-[#8b5cf6]/20">
+                <div className="h-3 w-full rounded-full bg-slate-100 dark:bg-black overflow-hidden p-0.5 border border-slate-200 dark:border-neutral-800">
                   <div
                     className="h-full rounded-full bg-[#8b5cf6] shadow-sm"
                     style={{ width: `${skill.level}%` }}
@@ -76,7 +76,7 @@ export default function Skills() {
           {/* Soft Skills & Languages */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="rounded-3xl bg-white dark:bg-[#121824] p-8 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md space-y-4">
+            <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 shadow-sm space-y-4">
               <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
                 Professional Soft Skills
               </h3>
@@ -87,9 +87,9 @@ export default function Skills() {
                   return (
                     <div
                       key={idx}
-                      className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-[#8b5cf6]/20 flex items-center gap-4"
+                      className="p-4 rounded-2xl bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 flex items-center gap-4"
                     >
-                      <div className="p-3 rounded-xl bg-[#8b5cf6]/15 text-[#7c3aed] dark:text-[#8b5cf6] shrink-0">
+                      <div className="p-3 rounded-xl bg-slate-100 dark:bg-black text-slate-900 dark:text-[#8b5cf6] border border-slate-200 dark:border-neutral-800 shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
                       <div>
@@ -102,7 +102,7 @@ export default function Skills() {
               </div>
             </div>
 
-            <div className="rounded-3xl bg-white dark:bg-[#121824] p-8 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md space-y-4">
+            <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 shadow-sm space-y-4">
               <h3 className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
                 <Globe className="w-5 h-5 text-[#7c3aed] dark:text-[#8b5cf6]" />
                 Languages
@@ -112,7 +112,7 @@ export default function Skills() {
                 {languages.map((lang, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-[#8b5cf6]/20 space-y-1"
+                    className="p-4 rounded-2xl bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 space-y-1"
                   >
                     <p className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
                       <CheckCircle className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />

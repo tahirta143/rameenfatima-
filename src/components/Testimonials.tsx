@@ -37,7 +37,7 @@ export default function Testimonials() {
         
         {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/30 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-neutral-800 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
             <Sparkles className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
             <span>Client Feedback</span>
           </div>
@@ -53,7 +53,7 @@ export default function Testimonials() {
           {reviews.map((rev) => (
             <div
               key={rev.id}
-              className="testimonial-card relative rounded-3xl bg-white dark:bg-[#121824] p-8 border border-slate-200 dark:border-[#8b5cf6]/20 hover:border-[#8b5cf6] transition-all duration-300 shadow-md hover:shadow-xl flex flex-col justify-between opacity-100"
+              className="testimonial-card relative rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 hover:border-[#8b5cf6] transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between opacity-100"
             >
               <div className="space-y-4">
                 <Quote className="w-8 h-8 text-[#8b5cf6]/60" />

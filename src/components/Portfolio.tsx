@@ -11,56 +11,56 @@ export default function Portfolio() {
   const portfolioItems = [
     {
       id: 1,
-      title: 'Ruby Marina Limited Logo',
+      title: 'Ruby Marina Limited - Corporate Logo',
       category: 'logo',
       categoryLabel: 'Logo Design',
       image: '/images/ruby-marina-logo.png',
-      description: 'Custom corporate gemstone logo design featuring elegant serif typography and dynamic gradient wave vector artwork.',
+      description: 'Elegant corporate logo design featuring custom serif typography, gemstone icon graphics, and dynamic vector gradients for a premium brand identity.',
       tags: ['Logo Design', 'Brand Identity', 'Adobe Illustrator'],
     },
     {
       id: 2,
-      title: 'Amazon Listing - Thigh Trainer Infographic',
+      title: 'Amazon Listing - Pelvic & Thigh Trainer Infographic',
       category: 'amazon',
       categoryLabel: 'Product Image Design',
       image: '/images/amazon-thigh-trainer-1.png',
-      description: 'High-converting Amazon listing graphic highlighting key muscle tightening benefits, feature icons, and clean aesthetic product presentation.',
+      description: 'High-converting Amazon listing graphic featuring key fitness benefit callouts, ergonomic feature breakdown, and sleek commercial presentation.',
       tags: ['Product Image Design', 'Amazon Infographic', 'Canva & Illustrator'],
     },
     {
       id: 3,
-      title: 'Amazon Listing - Product Structure Exploded View',
+      title: 'Amazon Listing - Product Structure & Feature Callouts',
       category: 'amazon',
       categoryLabel: 'Product Image Design',
       image: '/images/amazon-thigh-trainer-2.png',
-      description: 'Exploded product structure feature callout graphic explaining 360° adjustable button, triangular stability, and ergonomics.',
-      tags: ['Product Exploded View', 'Feature Callouts', 'Amazon Design'],
+      description: 'Exploded product structure graphic showcasing 360° adjustable gear mechanics, triangular stability engineering, and premium material callouts.',
+      tags: ['Product Exploded View', 'Feature Callouts', 'Amazon Listing Graphic'],
     },
     {
       id: 4,
-      title: 'Amazon Listing - Pet Hair Remover',
+      title: 'Amazon Listing - Pet Hair Remover Infographic',
       category: 'amazon',
       categoryLabel: 'Product Image Design',
       image: '/images/amazon-pet-hair-remover.png',
-      description: 'eCommerce product infographic showcasing static grip action, easy rinse & reuse, and safe fabric features.',
-      tags: ['Pet Hair Remover', 'Amazon Infographic', 'High Conversion Visual'],
+      description: 'E-commerce product infographic highlighting dual-sided static grip action, easy rinse-cleaning benefits, and safe multi-fabric performance.',
+      tags: ['Pet Hair Remover', 'Amazon Infographic', 'High Conversion Graphics'],
     },
     {
       id: 5,
-      title: 'Shopify Store Banner & Visual Styling',
+      title: 'Shopify Store Hero Banner & Brand Graphic',
       category: 'shopify',
       categoryLabel: 'Shopify Store Design',
       image: '/images/shopify-store-design.png',
-      description: 'Modern luxury eCommerce homepage hero banner designed with clean typography and sleek brand styling.',
+      description: 'Luxury e-commerce homepage hero banner crafted with high-end typography, modern gradient accents, and polished layout structure.',
       tags: ['Shopify Store Design', 'Banner Graphic', 'eCommerce Store'],
     },
     {
       id: 6,
-      title: 'Creative Marketing & Brand Poster',
+      title: 'Creative Brand & Promotional Event Poster',
       category: 'poster',
       categoryLabel: 'Poster Design',
       image: '/images/poster-design.png',
-      description: 'Vibrant promotional brand poster featuring glowing typography, geometric graphic elements, and strong visual hierarchy.',
+      description: 'High-impact promotional campaign poster featuring glowing typography, geometric brand elements, and crisp visual hierarchy.',
       tags: ['Poster Design', 'Social Media Graphic', 'Canva & Illustrator'],
     },
   ];
@@ -79,8 +79,8 @@ export default function Portfolio() {
         
         {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/30 text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
-            <Sparkles className="w-4 h-4 text-[#8b5cf6]" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-neutral-800 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
+            <Sparkles className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
             <span>Design Portfolio</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -105,8 +105,8 @@ export default function Portfolio() {
               onClick={() => setActiveFilter(filter.id)}
               className={`px-5 py-2.5 rounded-full text-xs font-extrabold tracking-wider transition-colors duration-200 ${
                 activeFilter === filter.id
-                  ? 'bg-[#8b5cf6] text-slate-950 shadow-md'
-                  : 'bg-white dark:bg-[#121824] border border-slate-200 dark:border-[#8b5cf6]/20 text-slate-700 dark:text-slate-200 hover:text-[#8b5cf6]'
+                  ? 'bg-[#8b5cf6] text-slate-950'
+                  : 'bg-white dark:bg-black border border-slate-200 dark:border-neutral-800 text-slate-700 dark:text-slate-200 hover:text-[#8b5cf6]'
               }`}
             >
               {filter.label}
@@ -120,7 +120,7 @@ export default function Portfolio() {
             <div
               key={item.id}
               onClick={() => setSelectedImage(item)}
-              className="portfolio-card group cursor-pointer relative rounded-3xl overflow-hidden bg-white dark:bg-[#121824] border border-slate-200 dark:border-[#8b5cf6]/20 hover:border-[#8b5cf6] transition-colors duration-200 shadow-md flex flex-col justify-between"
+              className="portfolio-card group cursor-pointer relative rounded-3xl overflow-hidden bg-white dark:bg-[#0d0d0d] border border-slate-200 dark:border-white/15 hover:border-[#8b5cf6] transition-colors duration-200 shadow-sm flex flex-col justify-between"
             >
               {/* Image */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
@@ -138,7 +138,7 @@ export default function Portfolio() {
                 </div>
 
                 <div className="absolute top-4 left-4 z-10">
-                  <span className="px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-md text-[11px] font-extrabold text-[#8b5cf6] border border-[#8b5cf6]/40">
+                  <span className="px-3 py-1 rounded-full bg-black/90 backdrop-blur-md text-[11px] font-extrabold text-[#8b5cf6] border border-white/20">
                     {item.categoryLabel}
                   </span>
                 </div>
@@ -159,7 +159,7 @@ export default function Portfolio() {
                   {item.tags.map((tag, tIdx) => (
                     <span
                       key={tIdx}
-                      className="px-2.5 py-1 rounded-md bg-[#8b5cf6]/15 text-[#8b5cf6] text-[10px] font-bold border border-[#8b5cf6]/30"
+                      className="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-black text-slate-800 dark:text-slate-200 text-[10px] font-bold border border-slate-200 dark:border-neutral-800"
                     >
                       {tag}
                     </span>
@@ -176,7 +176,7 @@ export default function Portfolio() {
       {/* Lightbox Modal */}
       {selectedImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-fadeIn">
-          <div className="relative max-w-4xl w-full rounded-3xl bg-white dark:bg-[#121824] border border-[#8b5cf6]/40 p-6 space-y-6 overflow-hidden max-h-[90vh] overflow-y-auto">
+          <div className="relative max-w-4xl w-full rounded-3xl bg-white dark:bg-[#0d0d0d] border border-white/20 p-6 space-y-6 overflow-hidden max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedImage(null)}
               className="absolute top-4 right-4 p-2 rounded-full bg-slate-900/80 border border-white/20 text-white hover:text-[#8b5cf6] transition-colors z-20"
@@ -184,7 +184,7 @@ export default function Portfolio() {
               <X className="w-6 h-6" />
             </button>
 
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden bg-slate-950 border border-[#8b5cf6]/20">
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden bg-slate-950 border border-white/10">
               <Image
                 src={selectedImage.image}
                 alt={selectedImage.title}
@@ -196,7 +196,7 @@ export default function Portfolio() {
             <div className="space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white">{selectedImage.title}</h3>
-                <span className="px-3 py-1 rounded-full bg-[#8b5cf6]/20 text-[#8b5cf6] text-xs font-bold border border-[#8b5cf6]/40">
+                <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-black text-slate-900 dark:text-[#8b5cf6] text-xs font-bold border border-slate-200 dark:border-neutral-800">
                   {selectedImage.categoryLabel}
                 </span>
               </div>
@@ -205,20 +205,20 @@ export default function Portfolio() {
 
               <div className="flex flex-wrap gap-2 pt-2">
                 {selectedImage.tags.map((tag: string, idx: number) => (
-                  <span key={idx} className="px-3 py-1 rounded-lg bg-[#8b5cf6]/15 text-[#8b5cf6] text-xs font-bold border border-[#8b5cf6]/30">
+                  <span key={idx} className="px-3 py-1 rounded-lg bg-slate-100 dark:bg-black text-slate-800 dark:text-slate-200 text-xs font-bold border border-slate-200 dark:border-neutral-800">
                     #{tag}
                   </span>
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-slate-200 dark:border-[#8b5cf6]/20 flex justify-end">
+              <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex justify-end">
                 <a
                   href={`https://wa.me/923147416969?text=Hi%20Rameen,%20I%20saw%20your%20project%20${encodeURIComponent(
                     selectedImage.title
                   )}%20and%20want%20to%20order%20similar%20graphics!`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-2.5 rounded-full bg-[#8b5cf6] hover:opacity-90 text-slate-950 text-xs font-extrabold flex items-center gap-2 shadow-md transition-opacity"
+                  className="px-6 py-2.5 rounded-full bg-[#8b5cf6] hover:bg-[#7c3aed] text-slate-950 text-xs font-extrabold flex items-center gap-2 transition-colors duration-200"
                 >
                   <span>Order Similar Design</span>
                   <ExternalLink className="w-4 h-4" />

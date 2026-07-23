@@ -82,13 +82,13 @@ export default function Preloader() {
           </h2>
           <p className="text-xs font-semibold text-brand-400 uppercase tracking-widest flex items-center justify-center gap-1.5">
             <Palette className="w-3.5 h-3.5" />
-            Graphic Designer &amp; Visual Artist
+            Graphic Designer
           </p>
         </div>
 
         {/* Loading Progress Bar */}
         <div className="w-64 mx-auto space-y-2">
-          <div className="h-1.5 w-full rounded-full bg-slate-900 overflow-hidden border border-brand-500/30 p-0.5">
+          <div className="h-1.5 w-full rounded-full bg-black overflow-hidden border border-white/20 p-0.5">
             <div
               className="h-full rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-300 transition-all duration-100 shadow-sm shadow-brand-500"
               style={{ width: `${progress}%` }}

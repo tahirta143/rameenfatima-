@@ -6,11 +6,11 @@ import { CheckCircle2, GraduationCap, Sparkles, HeartHandshake, MapPin, Globe } 
 
 export default function About() {
   const highlights = [
-    'Skilled in Canva & Adobe Illustrator for modern branding',
-    'Specialized in Product Image Design & Amazon Listing Graphics',
-    'Experience in Shopify Store Banner Styling & eCommerce Graphics',
-    'BS Information Technology Graduate (GPA 3.48) - Islamia University of Bahawalpur',
-    'Certified Graphic Design Course from The Leader’s Hall',
+    'Mastery in Adobe Illustrator & Canva Pro for commercial graphic design',
+    'Specialized in Amazon Listing Infographics & Product Feature Callout Cards',
+    'Custom Shopify Store Banners, E-Commerce Graphics & Brand Styling',
+    'BS Information Technology Graduate - Islamia University of Bahawalpur',
+    'Certified Graphic Design Specialist - The Leader’s Hall',
   ];
 
   return (
@@ -24,7 +24,7 @@ export default function About() {
           {/* Left Column: Avatar & Image Card */}
           <div className="lg:col-span-5 about-animate opacity-100">
             <div className="relative mx-auto max-w-md">
-              <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-[#121824] p-3 border border-slate-200 dark:border-[#8b5cf6]/30">
+              <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-[#0d0d0d] p-3 border border-slate-200 dark:border-white/15">
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-slate-950">
                   <Image
                     src="/images/rameen-about.png"
@@ -35,15 +35,15 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
 
                   {/* Badge */}
-                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-slate-900/90 border border-[#8b5cf6]/40 backdrop-blur-md text-white">
+                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-black/90 border border-white/20 backdrop-blur-md text-white">
                     <div className="flex items-center gap-3">
-                      <div className="p-2.5 rounded-lg bg-[#8b5cf6] text-slate-950 font-bold shadow-md shadow-[#8b5cf6]/40">
+                      <div className="p-2.5 rounded-lg bg-[#8b5cf6] text-slate-950 font-bold">
                         <GraduationCap className="w-6 h-6" />
                       </div>
                       <div>
-                        <p className="text-xs text-[#8b5cf6] font-extrabold uppercase tracking-wider">Education &amp; Training</p>
+                        <p className="text-xs text-[#8b5cf6] font-extrabold uppercase tracking-wider">Education &amp; Credentials</p>
                         <p className="text-sm font-extrabold text-white">The Islamia University of Bahawalpur</p>
-                        <p className="text-[11px] text-slate-300">BS IT (GPA 3.48) • The Leader's Hall Alum</p>
+                        <p className="text-[11px] text-slate-300">BS Information Technology • The Leader's Hall Certified</p>
                       </div>
                     </div>
                   </div>
@@ -56,7 +56,7 @@ export default function About() {
           {/* Right Column: Bio Narrative */}
           <div className="lg:col-span-7 space-y-6">
             <div className="about-animate space-y-2 opacity-100">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/30 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-neutral-800 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>About Me</span>
               </div>
@@ -66,14 +66,14 @@ export default function About() {
             </div>
 
             {/* Bio Quote */}
-            <div className="about-animate rounded-2xl bg-white dark:bg-[#121824] p-6 border border-slate-200 dark:border-[#8b5cf6]/25 shadow-md space-y-3 opacity-100">
+            <div className="about-animate rounded-2xl bg-white dark:bg-[#0d0d0d] p-6 border border-slate-200 dark:border-white/15 shadow-sm space-y-3 opacity-100">
               <p className="text-slate-900 dark:text-white text-base sm:text-lg font-medium leading-relaxed">
-                “I’m a creative Graphic Designer skilled in Canva and Adobe Illustrator with experience in product image design and Shopify store design. I create modern visuals and branding content for online businesses.”
+                “Passionate about helping e-commerce brands and online businesses scale with high-impact visual design. I combine creative design aesthetics with strategic market positioning to deliver graphics that drive engagement, trust, and sales conversions.”
               </p>
-              <div className="flex flex-wrap items-center gap-4 text-xs font-bold text-[#7c3aed] dark:text-[#8b5cf6] pt-2 border-t border-slate-100 dark:border-[#8b5cf6]/20">
+              <div className="flex flex-wrap items-center gap-4 text-xs font-bold text-[#7c3aed] dark:text-[#8b5cf6] pt-2 border-t border-slate-100 dark:border-white/10">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
-                  Bahawalnagar, Pakistan
+                  Available Worldwide (Remote)
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Globe className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
@@ -96,7 +96,7 @@ export default function About() {
             <div className="about-animate pt-4 flex flex-wrap gap-4 items-center opacity-100">
               <a
                 href="#services"
-                className="px-6 py-3.5 rounded-full bg-[#8b5cf6] hover:bg-[#7c3aed] text-slate-950 font-extrabold text-sm flex items-center gap-2 shadow-lg shadow-[#8b5cf6]/30 transition-all"
+                className="px-6 py-3.5 rounded-full bg-[#8b5cf6] hover:bg-[#7c3aed] text-slate-950 font-extrabold text-sm flex items-center gap-2 transition-colors duration-200"
               >
                 <HeartHandshake className="w-4 h-4" />
                 <span>Explore My Services</span>
@@ -106,7 +106,7 @@ export default function About() {
                 href="https://www.linkedin.com/in/rameen-fatima-869141406"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-full bg-white dark:bg-[#121824] border border-slate-200 dark:border-[#8b5cf6]/30 text-slate-900 dark:text-white text-sm font-bold hover:border-[#8b5cf6] transition-all shadow-sm"
+                className="px-6 py-3.5 rounded-full bg-white dark:bg-[#0d0d0d] border border-slate-200 dark:border-white/15 text-slate-900 dark:text-white text-sm font-bold hover:border-[#8b5cf6] transition-colors duration-200"
               >
                 LinkedIn Profile
               </a>

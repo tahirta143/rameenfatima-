@@ -58,8 +58,8 @@ export default function Navbar() {
                 <Sparkles className="w-4 h-4 text-[#8b5cf6]" />
               </span>
               <span className="text-[11px] body-subtext font-medium flex items-center gap-1">
-                <MapPin className="w-3 h-3 text-[#8b5cf6]" />
-                Bahawalnagar, Pakistan
+                <Sparkles className="w-3 h-3 text-[#8b5cf6]" />
+                Graphic Designer
               </span>
             </div>
           </a>

@@ -4,22 +4,22 @@
 
 @layer base {
   :root {
-    --bg-primary: #0b0f19;
-    --bg-card: #121824;
+    --bg-primary: #000000;
+    --bg-card: #0d0d0d;
     --bg-card-border: rgba(139, 92, 246, 0.25);
     --text-primary: #ffffff;
     --text-secondary: #cbd5e1;
-    --nav-bg: rgba(11, 15, 25, 0.95);
+    --nav-bg: rgba(0, 0, 0, 0.95);
     --accent: #8b5cf6;
   }
 
   .dark {
-    --bg-primary: #0b0f19;
-    --bg-card: #121824;
+    --bg-primary: #000000;
+    --bg-card: #0d0d0d;
     --bg-card-border: rgba(139, 92, 246, 0.25);
     --text-primary: #ffffff;
     --text-secondary: #cbd5e1;
-    --nav-bg: rgba(11, 15, 25, 0.95);
+    --nav-bg: rgba(0, 0, 0, 0.95);
     --accent: #8b5cf6;
   }
 
