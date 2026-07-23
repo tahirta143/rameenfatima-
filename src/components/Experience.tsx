@@ -57,6 +57,8 @@ export default function Experience() {
 
   return (
     <section id="experience" className="py-24 site-bg transition-colors duration-500 relative overflow-hidden">
+      {/* Anchor for Education navbar link */}
+      <div id="education" className="absolute top-0 left-0" />
       {/* Ambient Backdrop */}
       <div className="absolute top-1/2 left-0 w-80 h-80 bg-[#8b5cf6]/10 rounded-full blur-[120px] pointer-events-none" />
 

@@ -22,10 +22,12 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Education', href: '#education' },
+    { name: 'Work', href: '#services' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Reviews', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
   ];
 
