@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0b0f19;
+    --bg-card: #121824;
+    --bg-card-border: rgba(139, 92, 246, 0.25);
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --nav-bg: rgba(11, 15, 25, 0.95);
+    --accent: #8b5cf6;
+  }
+
+  .dark {
+    --bg-primary: #0b0f19;
+    --bg-card: #121824;
+    --bg-card-border: rgba(139, 92, 246, 0.25);
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --nav-bg: rgba(11, 15, 25, 0.95);
+    --accent: #8b5cf6;
+  }
+
+  .light {
+    --bg-primary: #ffffff;
+    --bg-card: #f8fafc;
+    --bg-card-border: rgba(139, 92, 246, 0.3);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --accent: #8b5cf6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Theme Utilities */
+.site-bg {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.glass-panel {
+  background-color: var(--bg-card);
+  border-color: var(--bg-card-border);
+  color: var(--text-primary);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: border-color 0.2s ease;
+}
+
+.heading-text {
+  color: var(--text-primary);
+}
+
+.body-subtext {
+  color: var(--text-secondary);
+}
+
+/* Single Color Primary Button */
+.btn-teal, .btn-violet {
+  background-color: #8b5cf6 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-teal:hover, .btn-violet:hover {
+  background-color: #7c3aed !important;
+  opacity: 0.95 !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+}
+
+/* Single Accent Color Utility */
+.text-accent-gradient {
+  color: #8b5cf6 !important;
+}
