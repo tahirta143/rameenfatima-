@@ -20,6 +20,16 @@ export const metadata: Metadata = {
     'WordPress Website Design',
     'The Leaders Hall',
   ],
+  icons: {
+    icon: '/images/rameen-avatar.jpg',
+    shortcut: '/images/rameen-avatar.jpg',
+    apple: '/images/rameen-avatar.jpg',
+  },
+  openGraph: {
+    title: 'Rameen Fatima - Graphic Designer Portfolio',
+    description: 'Specializing in Amazon Listing Images, Shopify Store Design, Logos & Graphics.',
+    images: [{ url: '/images/rameen-avatar.jpg' }],
+  },
 };
 
 export default function RootLayout({

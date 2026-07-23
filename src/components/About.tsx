@@ -27,7 +27,7 @@ export default function About() {
               <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-[#121824] p-3 border border-slate-200 dark:border-[#8b5cf6]/30">
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-slate-950">
                   <Image
-                    src="/images/rameen-avatar.jpg"
+                    src="/images/rameen-about.png"
                     alt="Rameen Fatima Graphic Designer"
                     fill
                     className="object-cover"
