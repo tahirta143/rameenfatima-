@@ -21,7 +21,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-          {/* Left Column: Avatar & Card */}
+          {/* Left Column: Avatar & Image Card */}
           <div className="lg:col-span-5 about-animate opacity-100">
             <div className="relative mx-auto max-w-md">
               <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-[#121824] p-3 border border-slate-200 dark:border-[#8b5cf6]/30">
@@ -30,7 +30,7 @@ export default function About() {
                     src="/images/rameen-about.png"
                     alt="Rameen Fatima Graphic Designer"
                     fill
-                    className="object-cover"
+                    className="object-cover scale-x-[-1]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
 
