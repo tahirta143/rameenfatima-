@@ -80,7 +80,7 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="hero"
-      className="relative min-h-screen pt-36 sm:pt-40 pb-24 flex items-center justify-start overflow-hidden bg-black text-white transition-colors duration-500"
+      className="relative min-h-[75vh] sm:min-h-[80vh] pt-28 sm:pt-32 pb-16 flex items-center justify-start overflow-hidden bg-black text-white transition-colors duration-500"
     >
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -90,13 +90,13 @@ export default function Hero() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover scale-105 opacity-60"
+          className="w-full h-full object-cover scale-105 opacity-70"
         >
-          <source src="/images/herovideo.mp4" type="video/mp4" />
+          <source src="/videos/bg.mp4" type="video/mp4" />
         </video>
 
         {/* Dark Overlay Gradient to guarantee 100% clear text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/40 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20 backdrop-blur-[1px]" />
       </div>
 
       {/* Main Full-Screen Width Layout Container */}
@@ -106,29 +106,28 @@ export default function Hero() {
           {/* Top Pill Badge */}
           <div ref={badgeRef} className="flex items-center gap-2 opacity-0">
             <span className="px-4 py-2 rounded-full bg-neutral-900/90 border border-white/20 text-slate-200 text-xs font-extrabold uppercase tracking-widest flex items-center gap-2 backdrop-blur-md shadow-md">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#a855f7] animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#d946ef] animate-pulse" />
               GRAPHIC &amp; BRAND DESIGNER
             </span>
           </div>
 
-          {/* Giant Bold Headline (BRANDS DON'T GROW QUIETLY.) */}
+          {/* Bold Headline */}
           <h1
             ref={titleRef}
-            className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-white tracking-tight uppercase leading-[0.92] opacity-0"
+            className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white tracking-tight uppercase leading-[1.0] opacity-0"
           >
-            BRANDS<br />
-            DON'T<br />
-            <span className="text-[#a855f7]">GROW</span><br />
-            <span className="text-[#a855f7]">QUIETLY.</span>
+            HI, I'M <span className="bg-gradient-to-r from-[#a855f7] via-[#d946ef] to-[#e879f9] bg-clip-text text-transparent">RAMEEN.</span><br />
+            <span className="text-white">GRAPHIC &amp; BRAND</span><br />
+            <span className="bg-gradient-to-r from-[#a855f7] via-[#d946ef] to-[#e879f9] bg-clip-text text-transparent">DESIGNER.</span>
           </h1>
 
           {/* Subtitle Narrative & Subtext */}
           <div ref={subtitleRef} className="space-y-3 max-w-2xl opacity-0">
             <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white leading-snug">
-              Creating brands that refuse to be ignored. I turn attention into authority through strategic visual identity design.
+              Creating brands that refuse to be ignored. Turning attention into authority through strategic visual identity design.
             </h3>
             <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed font-normal">
-              Graphic &amp; Brand Designer helping startups &amp; established businesses scale through high-quality visual storytelling.
+              3 Years Experienced Graphic &amp; Brand Designer helping startups &amp; e-commerce businesses scale through high-quality visual storytelling.
             </p>
           </div>
 
@@ -137,7 +136,7 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#portfolio"
-                className="px-8 py-4 rounded-full bg-[#a855f7] hover:bg-[#9333ea] text-white font-extrabold text-sm sm:text-base flex items-center gap-2.5 transition-all duration-200 shadow-xl shadow-purple-600/30 hover:scale-[1.03]"
+                className="px-8 py-4 rounded-full bg-gradient-to-r from-[#3b0764] via-[#7e22ce] to-[#d946ef] hover:brightness-110 text-white font-extrabold text-sm sm:text-base flex items-center gap-2.5 transition-all duration-200 shadow-xl shadow-purple-900/50 hover:scale-[1.03]"
               >
                 <span>View Portfolio</span>
                 <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />

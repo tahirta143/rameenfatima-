@@ -299,9 +299,9 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-[#8b5cf6] hover:bg-[#7c3aed] py-4 rounded-xl font-extrabold text-slate-950 text-sm flex items-center justify-center gap-2 transition-colors duration-200 shadow-md shadow-[#8b5cf6]/25"
+                className="w-full bg-gradient-to-r from-[#3b0764] via-[#7e22ce] to-[#d946ef] hover:brightness-110 py-4 rounded-xl font-extrabold text-white text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-lg shadow-purple-900/40 hover:scale-[1.01]"
               >
-                <Send className="w-4 h-4 fill-slate-950 stroke-slate-950" />
+                <Send className="w-4 h-4 fill-white stroke-white" />
                 <span>Send WhatsApp Message to Rameen</span>
               </button>
             </form>

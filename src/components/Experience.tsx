@@ -18,20 +18,21 @@ export default function Experience() {
   const timelineItems = [
     {
       id: '01',
-      title: 'Senior Graphic Designer & Brand Strategist',
-      institution: 'Freelance / Independent',
-      period: '2023 — Present',
-      location: 'Bahawalnagar, Pakistan (Remote Worldwide)',
-      milestonesCount: '4 key milestones',
+      title: 'Professional Graphic Designer',
+      institution: 'Graphic Design Practice',
+      period: '2023 — Present (3 Years Experience)',
+      location: 'Bahawalnagar, Pakistan',
+      milestonesCount: '5 key milestones',
       description:
-        'Building visual growth engines for startups and established businesses. Specializing in stop-the-scroll social media content, cohesive brand identities, and pitch decks that convert.',
+        '3 Years Experienced Professional Graphic & Brand Designer specializing in Canva, Adobe Illustrator, Amazon listing images, Shopify store design, product infographics, and branding concepts.',
       achievements: [
-        '3 years of dedicated brand & visual design experience',
-        'Served 50+ clients across e-commerce & digital platforms',
-        '5.0/5 average rating across all client engagements',
-        'Specialist in e-commerce branding & visual authority building',
+        'Practiced Canva and Adobe Illustrator to develop strong graphic design skills',
+        'Designed social media posts and product images for portfolio development',
+        'Created visual content and basic branding concepts',
+        'Learned and practiced Shopify store design and eCommerce graphics',
+        'Built a personal design portfolio to prepare for freelance and remote work opportunities',
       ],
-      tags: ['Brand Identity', 'Social Media', 'Pitch Decks', 'Logo Design'],
+      tags: ['Canva', 'Adobe Illustrator', 'Shopify Design', 'eCommerce Graphics', 'Branding'],
       icon: Briefcase,
     },
     {
@@ -108,12 +109,12 @@ export default function Experience() {
 
           {/* Header */}
           <div className="mb-8 text-center space-y-2">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-[#0d0d0d] border border-slate-200 dark:border-neutral-800 text-[#7c3aed] dark:text-[#B000FF] text-xs font-bold uppercase tracking-widest">
-              <Sparkles className="w-4 h-4 text-[#7c3aed] dark:text-[#B000FF]" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-[#0d0d0d] border border-slate-200 dark:border-neutral-800 text-[#d946ef] text-xs font-bold uppercase tracking-widest">
+              <Sparkles className="w-4 h-4 text-[#d946ef]" />
               <span>02 / Experience &amp; Journey</span>
             </div>
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight uppercase heading-text">
-              THE <span className="text-[#7c3aed] dark:text-[#B000FF]">JOURNEY</span>
+              THE <span className="bg-gradient-to-r from-[#a855f7] via-[#d946ef] to-[#e879f9] bg-clip-text text-transparent">JOURNEY</span>
             </h2>
             <p className="text-xs sm:text-sm body-subtext font-medium max-w-xl mx-auto">
               Scroll down to reveal my experience milestones one by one in the centered stack deck.

@@ -143,10 +143,10 @@ export default function About() {
               <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-[#0d0d0d] p-3 border border-slate-200 dark:border-white/15 shadow-xl">
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-slate-950">
                   <Image
-                    src="/images/rameen-about.png"
+                    src="/images/about.png.png"
                     alt="Rameen Fatima Graphic Designer"
                     fill
-                    className="object-cover scale-x-[-1]"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
 
@@ -227,7 +227,7 @@ export default function About() {
             <div className="pt-4 flex flex-wrap gap-4 items-center">
               <a
                 href="#services"
-                className="px-6 py-3.5 rounded-full bg-[#8b5cf6] hover:bg-[#7c3aed] text-slate-950 font-extrabold text-sm flex items-center gap-2 transition-colors duration-200 shadow-md shadow-[#8b5cf6]/20"
+                className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#3b0764] via-[#7e22ce] to-[#d946ef] hover:brightness-110 text-white font-extrabold text-sm flex items-center gap-2 transition-all duration-200 shadow-md shadow-purple-900/30"
               >
                 <HeartHandshake className="w-4 h-4" />
                 <span>Explore My Services</span>

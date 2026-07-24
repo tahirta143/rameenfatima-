@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { Sparkles, Eye, X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { Sparkles, Eye, X, ChevronLeft, ChevronRight, ExternalLink, ArrowUpRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -31,10 +31,10 @@ export default function Portfolio() {
   const portfolioItems: Project[] = [
     {
       id: 1,
-      title: 'Zest Brew — Coffee Brand Identity & Packaging',
+      title: 'Branding — Zest Brew Coffee',
       category: 'branding',
       categoryLabel: 'Brand Identity',
-      categoryTag: 'BRAND IDENTITY · 2024',
+      categoryTag: 'PRODUCT BRAND IDENTITY · 2024',
       image: '/images/zest-brew-1.png',
       galleryImages: [
         '/images/zest-brew-1.png',
@@ -44,57 +44,77 @@ export default function Portfolio() {
         '/images/zest-brew-5.png',
       ],
       description:
-        'Complete brand identity system for a specialty coffee brand including logo lockup, takeaway cups, coffee bean packaging, interior neon signage, and menu graphics.',
+        'Complete brand identity system for a specialty coffee brand. Friendly yet premium, designed for maximum brand recall.',
       tags: ['Brand Identity', 'Packaging Mockup', 'Logo Design', 'Canva & Illustrator'],
     },
     {
       id: 2,
-      title: 'Amazon Listing — Organic Supplement Infographic',
+      title: 'Infographic — Organic Supplement',
       category: 'amazon',
       categoryLabel: 'Product Image Design',
-      categoryTag: 'AMAZON INFOGRAPHIC · 2024',
+      categoryTag: 'PRODUCT INFOGRAPHIC · 2024',
       image: '/images/amazon-supplement-infographic.png',
       galleryImages: [
         '/images/amazon-supplement-infographic.png',
         '/images/amazon-thigh-trainer-1.png',
       ],
       description:
-        'High-converting Amazon listing infographic graphic featuring exploded product view, benefit callouts, ingredient breakdown, and commercial e-commerce presentation.',
+        'High-converting Amazon listing infographic graphic featuring exploded product view, benefit callouts, and commercial e-commerce presentation.',
       tags: ['Amazon Listing Graphic', 'Product Infographic', 'E-Commerce Design'],
     },
     {
       id: 3,
-      title: 'Ruby Marina & Co — Luxury Vector Monogram & Logo',
+      title: 'Monogram — Ruby Marina',
       category: 'logo',
       categoryLabel: 'Logo Design',
-      categoryTag: 'LOGO DESIGN · 2024',
+      categoryTag: 'BRANDING & LOGO · 2024',
       image: '/images/vector-logo-branding.png',
       galleryImages: [
         '/images/vector-logo-branding.png',
         '/images/ruby-marina-logo.png',
       ],
       description:
-        'Elegant corporate monogram logo design featuring custom vector typography, gemstone icon graphics, business card design, and brand stationery mockup.',
+        'Elegant corporate monogram logo design featuring custom vector typography, gemstone icon graphics, and brand stationery mockup.',
       tags: ['Logo Design', 'Vector Monogram', 'Stationery Mockup', 'Adobe Illustrator'],
     },
     {
       id: 4,
-      title: 'Amazon Listing — Pet Hair Remover Infographic',
-      category: 'amazon',
-      categoryLabel: 'Product Image Design',
-      categoryTag: 'PRODUCT INFOGRAPHIC · 2024',
+      title: 'Branding — Teeth Cleaner',
+      category: 'branding',
+      categoryLabel: 'Product Brand Identity',
+      categoryTag: 'PRODUCT BRAND IDENTITY · 2024',
       image: '/images/amazon-pet-hair-remover.png',
       galleryImages: [
         '/images/amazon-pet-hair-remover.png',
         '/images/amazon-thigh-trainer-2.png',
+        '/images/amazon-supplement-infographic.png',
+        '/images/zest-brew-1.png',
+        '/images/zest-brew-2.png',
       ],
       description:
-        'E-commerce product infographic highlighting dual-sided static grip action, easy rinse-cleaning benefits, and safe multi-fabric performance.',
-      tags: ['Pet Care Product', 'Feature Breakdown', 'Amazon Listing Graphic'],
+        'Clean, fresh brand identity for a dental care product. Friendly yet clinical, designed to build trust and drive high sales.',
+      tags: ['Dental Care', 'Product Branding', 'E-Commerce Graphic'],
     },
     {
       id: 5,
-      title: 'Luxe Beauty — Shopify Store Hero Banner & Graphic',
+      title: 'Thumbnail Designs',
+      category: 'poster',
+      categoryLabel: 'Content Design',
+      categoryTag: 'CONTENT DESIGN · 2024',
+      image: '/images/modern-event-poster.png',
+      galleryImages: [
+        '/images/modern-event-poster.png',
+        '/images/social-media-graphics-kit.png',
+        '/images/poster-design.png',
+        '/images/shopify-banner-graphic.png',
+      ],
+      description:
+        'Stop-the-scroll thumbnail system for content creators. Built for click-through optimization and maximum visual impact.',
+      tags: ['Thumbnail Design', 'Content Design', 'Click-Through Optimization'],
+    },
+    {
+      id: 6,
+      title: 'Store Design — Luxe Beauty',
       category: 'shopify',
       categoryLabel: 'Shopify Store Design',
       categoryTag: 'SHOPIFY STORE DESIGN · 2024',
@@ -106,22 +126,6 @@ export default function Portfolio() {
       description:
         'High-end e-commerce homepage hero banner designed with luxury typography, sleek beauty product presentation, and modern visual hierarchy.',
       tags: ['Shopify Store Design', 'Banner Graphic', 'eCommerce Store'],
-    },
-    {
-      id: 6,
-      title: 'Commercial Marketing & Social Media Creative Kit',
-      category: 'poster',
-      categoryLabel: 'Poster Design',
-      categoryTag: 'POSTER DESIGN · 2024',
-      image: '/images/modern-event-poster.png',
-      galleryImages: [
-        '/images/modern-event-poster.png',
-        '/images/social-media-graphics-kit.png',
-        '/images/poster-design.png',
-      ],
-      description:
-        'High-impact marketing poster and social media creative campaign kit featuring neon typography, geometric graphic design shapes, and promotional flyers.',
-      tags: ['Poster Design', 'Social Media Graphic', 'Canva Pro & Illustrator'],
     },
   ];
 
@@ -171,7 +175,7 @@ export default function Portfolio() {
         }
       );
 
-      // Grid cards left/right horizontal slide reveal (matching Skills.tsx smoothness)
+      // Grid cards left/right horizontal slide reveal
       if (projectGridRef.current) {
         const projectCards = Array.from(projectGridRef.current.children);
         projectCards.forEach((card, index) => {
@@ -280,69 +284,68 @@ export default function Portfolio() {
             <button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
-              className={`px-5 py-2.5 rounded-full text-xs font-extrabold tracking-wider transition-all duration-200 ${activeFilter === filter.id
-                  ? 'bg-[#8b5cf6] text-slate-950 shadow-md shadow-[#8b5cf6]/30'
-                  : 'bg-white dark:bg-black border border-slate-200 dark:border-neutral-800 text-slate-700 dark:text-slate-200 hover:text-[#8b5cf6]'
-                }`}
+              className={`px-5 py-2.5 rounded-full text-xs font-extrabold tracking-wider transition-all duration-200 ${
+                activeFilter === filter.id
+                  ? 'bg-gradient-to-r from-[#3b0764] via-[#7e22ce] to-[#d946ef] text-white shadow-md shadow-purple-900/40'
+                  : 'bg-white dark:bg-black border border-slate-200 dark:border-neutral-800 text-slate-700 dark:text-slate-200 hover:text-[#d946ef]'
+              }`}
             >
               {filter.label}
             </button>
           ))}
         </div>
 
-        {/* Grid of Projects */}
+        {/* Grid of Projects (Matching User Reference Image Design) */}
         <div ref={projectGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item) => (
             <div
               key={item.id}
               onClick={() => openModal(item)}
-              className="portfolio-card group cursor-pointer relative rounded-3xl overflow-hidden bg-white dark:bg-[#0d0d0d] border border-slate-200 dark:border-white/15 hover:border-[#8b5cf6] transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-[#8b5cf6]/10 flex flex-col justify-between opacity-0"
+              className="portfolio-card group cursor-pointer relative rounded-3xl overflow-hidden aspect-[4/5] sm:aspect-[3/4] bg-neutral-950 border border-slate-200 dark:border-white/15 hover:border-[#a855f7] transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-purple-950/40 opacity-0"
             >
-              {/* Image Container */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+              {/* Full Height Cover Image */}
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6 backdrop-blur-[2px]">
-                  <div className="px-5 py-2.5 rounded-full bg-[#8b5cf6] text-slate-950 font-extrabold text-xs flex items-center gap-2 shadow-lg">
-                    <Eye className="w-4 h-4" />
-                    <span>View Gallery ({item.galleryImages.length} images)</span>
-                  </div>
+              {/* Top Floating Glass Badges */}
+              <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
+                {/* Top Left Circle Number ID Badge */}
+                <div className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-xs font-black text-white shadow-lg">
+                  {item.id < 10 ? `0${item.id}` : item.id}
                 </div>
 
-                {/* Top Category Badge */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="px-3 py-1 rounded-full bg-black/90 backdrop-blur-md text-[11px] font-extrabold text-[#8b5cf6] border border-white/20">
-                    {item.categoryLabel}
-                  </span>
+                {/* Top Right View Count / Gallery Pill Badge */}
+                <div className="px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-xs font-bold text-white flex items-center gap-1.5 shadow-lg">
+                  <Eye className="w-3.5 h-3.5 text-white" />
+                  <span>{item.galleryImages.length}</span>
                 </div>
               </div>
 
-              {/* Card Footer Info */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div>
-                  <h3 className="text-lg font-extrabold text-slate-900 dark:text-white group-hover:text-[#8b5cf6] transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mt-1.5 leading-relaxed font-normal">
-                    {item.description}
-                  </p>
-                </div>
+              {/* Bottom Dark Gradient Overlay & Info Layer */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 via-45% to-transparent flex flex-col justify-end p-6 sm:p-7 space-y-2 z-10">
+                {/* Category & Year Tag */}
+                <span className="text-[#a855f7] text-[11px] sm:text-xs font-extrabold uppercase tracking-widest">
+                  {item.categoryTag}
+                </span>
 
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {item.tags.map((tag, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-black text-slate-800 dark:text-slate-200 text-[10px] font-bold border border-slate-200 dark:border-neutral-800"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                {/* Project Title */}
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight group-hover:text-[#a855f7] transition-colors">
+                  {item.title}
+                </h3>
+
+                {/* Preview Description */}
+                <p className="text-slate-300 text-xs sm:text-sm font-normal line-clamp-2 leading-relaxed opacity-90">
+                  {item.description}
+                </p>
+
+                {/* View Project Arrow Button */}
+                <div className="pt-2 flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-white group-hover:text-[#a855f7] transition-colors">
+                  <span>View Project</span>
+                  <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                 </div>
               </div>
 
