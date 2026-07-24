@@ -122,8 +122,8 @@ export default function Skills() {
 
         {/* Header */}
         <div ref={headerRef} className="text-center space-y-4 max-w-3xl mx-auto mb-16 opacity-0">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-neutral-800 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
-            <Sparkles className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-neutral-800 text-[#d946ef] text-xs font-bold uppercase tracking-wider shadow-sm">
+            <Sparkles className="w-4 h-4 text-[#d946ef]" />
             <span>Expertise Matrix</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight drop-shadow-sm">
@@ -139,7 +139,7 @@ export default function Skills() {
           {/* Main Skills */}
           <div ref={mainSkillsRef} className="lg:col-span-7 space-y-6 rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 shadow-sm opacity-0">
             <h3 className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2 mb-6">
-              <Layers className="w-5 h-5 text-[#7c3aed] dark:text-[#8b5cf6]" />
+              <Layers className="w-5 h-5 text-[#d946ef]" />
               Technical Design Skills
             </h3>
 
@@ -154,7 +154,7 @@ export default function Skills() {
                       </span>
                     )}
                   </span>
-                  <span className="font-extrabold text-[#7c3aed] dark:text-[#8b5cf6]">{skill.level}%</span>
+                  <span className="font-black bg-gradient-to-r from-[#a855f7] via-[#d946ef] to-[#e879f9] bg-clip-text text-transparent">{skill.level}%</span>
                 </div>
 
                 <div className="h-3 w-full rounded-full bg-slate-100 dark:bg-black overflow-hidden p-0.5 border border-slate-200 dark:border-neutral-800">
@@ -162,7 +162,7 @@ export default function Skills() {
                     ref={(el) => {
                       barRefs.current[idx] = el;
                     }}
-                    className="h-full rounded-full bg-[#8b5cf6] shadow-sm w-0"
+                    className="h-full rounded-full bg-gradient-to-r from-[#3b0764] via-[#7e22ce] to-[#d946ef] shadow-md shadow-purple-500/30 w-0"
                   />
                 </div>
               </div>
@@ -185,7 +185,7 @@ export default function Skills() {
                       key={idx}
                       className="p-4 rounded-2xl bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 flex items-center gap-4"
                     >
-                      <div className="p-3 rounded-xl bg-slate-100 dark:bg-black text-slate-900 dark:text-[#8b5cf6] border border-slate-200 dark:border-neutral-800 shrink-0">
+                      <div className="p-3 rounded-xl bg-purple-100 dark:bg-purple-950/60 text-[#d946ef] border border-purple-200 dark:border-purple-800/40 shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
                       <div>
@@ -200,7 +200,7 @@ export default function Skills() {
 
             <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 shadow-sm space-y-4">
               <h3 className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
-                <Globe className="w-5 h-5 text-[#7c3aed] dark:text-[#8b5cf6]" />
+                <Globe className="w-5 h-5 text-[#d946ef]" />
                 Languages
               </h3>
 
@@ -211,7 +211,7 @@ export default function Skills() {
                     className="p-4 rounded-2xl bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 space-y-1"
                   >
                     <p className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
-                      <CheckCircle className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
+                      <CheckCircle className="w-4 h-4 text-[#d946ef]" />
                       {lang.name}
                     </p>
                     <p className="text-[10px] text-slate-600 dark:text-slate-300 font-medium">{lang.level}</p>

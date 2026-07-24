@@ -127,7 +127,7 @@ export default function Hero() {
               Creating brands that refuse to be ignored. Turning attention into authority through strategic visual identity design.
             </h3>
             <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed font-normal">
-              3 Years Experienced Graphic &amp; Brand Designer helping startups &amp; e-commerce businesses scale through high-quality visual storytelling.
+              Creative Graphic &amp; Brand Designer helping startups &amp; e-commerce businesses scale through high-quality visual storytelling.
             </p>
           </div>
 

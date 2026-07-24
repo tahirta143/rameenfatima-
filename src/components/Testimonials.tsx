@@ -12,12 +12,12 @@ export default function Testimonials() {
 
   // Featured Highlight Client for the Left Dark Card
   const featuredReview = {
-    fullName: 'Jamie Williams',
-    role: 'Professional Document Cleanup & Resume Optimization',
-    category: 'BRAND DESIGN',
-    date: 'June 14, 2026',
+    fullName: 'Sarah Jenkins',
+    role: 'Founder & Brand Director | E-Commerce Specialist',
+    category: 'BRANDING & GRAPHIC DESIGN',
+    date: 'July 10, 2026',
     comment:
-      'Rameen didn’t touch my copy — she did something more powerful. She took complete ownership of my LinkedIn visual presence, designing a custom banner that instantly communicates authority. She is the gold standard. Full stop.',
+      'Rameen transformed our visual identity from the ground up. Her graphics, logo typography, and banner layouts skyrocketed our brand authority and client conversions. She is an extraordinary design partner!',
     rating: 5,
     highlightBadge: 'FEATURED CLIENT SPOTLIGHT',
   };
