@@ -1,9 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Sparkles, Layers, MessageSquare, Clock, Globe, CheckCircle } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function Skills() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const mainSkillsRef = useRef<HTMLDivElement>(null);
+  const sideSkillsRef = useRef<HTMLDivElement>(null);
+  const barRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const primarySkills = [
     { name: 'Adobe Illustrator', level: 92, category: 'Design Software' },
     { name: 'Product Image Design (Amazon Infographics)', level: 95, category: 'Product Graphics' },
@@ -22,12 +30,98 @@ export default function Skills() {
     { name: 'Urdu', level: 'Native / Fluent' },
   ];
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // Header reveal from top
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: -35, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            end: 'bottom top',
+            toggleActions: 'restart none none reset',
+          },
+        }
+      );
+
+      // Main Skills card reveal from Left (-90px)
+      gsap.fromTo(
+        mainSkillsRef.current,
+        { opacity: 0, x: -90, scale: 0.95 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: mainSkillsRef.current,
+            start: 'top 80%',
+            end: 'bottom top',
+            toggleActions: 'restart none none reset',
+          },
+        }
+      );
+
+      // Animated skill progress bars fill effect
+      barRefs.current.forEach((bar, idx) => {
+        if (!bar) return;
+        const targetWidth = primarySkills[idx].level;
+        gsap.fromTo(
+          bar,
+          { width: '0%' },
+          {
+            width: `${targetWidth}%`,
+            duration: 1.5,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: mainSkillsRef.current,
+              start: 'top 80%',
+              end: 'bottom top',
+              toggleActions: 'restart none none reset',
+            },
+          }
+        );
+      });
+
+      // Side skills reveal from Right (+90px)
+      gsap.fromTo(
+        sideSkillsRef.current,
+        { opacity: 0, x: 90, scale: 0.95 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sideSkillsRef.current,
+            start: 'top 80%',
+            end: 'bottom top',
+            toggleActions: 'restart none none reset',
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="skills" className="py-24 site-bg transition-colors duration-500 relative overflow-hidden">
+    <section ref={sectionRef} id="skills" className="py-24 site-bg transition-colors duration-500 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Header */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
+        <div ref={headerRef} className="text-center space-y-4 max-w-3xl mx-auto mb-16 opacity-0">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-neutral-800 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
             <Sparkles className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
             <span>Expertise Matrix</span>
@@ -41,9 +135,9 @@ export default function Skills() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Main Skills */}
-          <div className="lg:col-span-7 space-y-6 rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 shadow-sm">
+          <div ref={mainSkillsRef} className="lg:col-span-7 space-y-6 rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 shadow-sm opacity-0">
             <h3 className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2 mb-6">
               <Layers className="w-5 h-5 text-[#7c3aed] dark:text-[#8b5cf6]" />
               Technical Design Skills
@@ -65,8 +159,10 @@ export default function Skills() {
 
                 <div className="h-3 w-full rounded-full bg-slate-100 dark:bg-black overflow-hidden p-0.5 border border-slate-200 dark:border-neutral-800">
                   <div
-                    className="h-full rounded-full bg-[#8b5cf6] shadow-sm"
-                    style={{ width: `${skill.level}%` }}
+                    ref={(el) => {
+                      barRefs.current[idx] = el;
+                    }}
+                    className="h-full rounded-full bg-[#8b5cf6] shadow-sm w-0"
                   />
                 </div>
               </div>
@@ -74,8 +170,8 @@ export default function Skills() {
           </div>
 
           {/* Soft Skills & Languages */}
-          <div className="lg:col-span-5 space-y-6">
-            
+          <div ref={sideSkillsRef} className="lg:col-span-5 space-y-6 opacity-0">
+
             <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 shadow-sm space-y-4">
               <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
                 Professional Soft Skills
@@ -132,3 +228,4 @@ export default function Skills() {
     </section>
   );
 }
+

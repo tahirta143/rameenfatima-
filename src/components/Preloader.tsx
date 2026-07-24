@@ -57,12 +57,12 @@ export default function Preloader() {
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black text-white"
     >
       {/* Background glow */}
-      <div className="absolute w-[450px] h-[450px] bg-brand-500/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute w-[450px] h-[450px] bg-[#a855f7]/20 rounded-full blur-[120px] pointer-events-none" />
 
       <div ref={contentRef} className="relative z-10 text-center space-y-6 px-4">
 
         {/* Avatar Ring */}
-        <div className="relative mx-auto w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-brand-500 via-brand-400 to-purple-700 shadow-2xl shadow-brand-500/50 animate-pulse">
+        <div className="relative mx-auto w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-[#a855f7] via-purple-500 to-purple-700 shadow-2xl shadow-purple-500/50 animate-pulse">
           <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-black">
             <Image
               src="/images/rameen-avatar.jpg"
@@ -78,25 +78,25 @@ export default function Preloader() {
         <div className="space-y-1">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
             <span>Rameen Fatima</span>
-            <Sparkles className="w-5 h-5 text-brand-400 animate-spin" />
+            <Sparkles className="w-5 h-5 text-[#a855f7] animate-spin" />
           </h2>
-          <p className="text-xs font-semibold text-brand-400 uppercase tracking-widest flex items-center justify-center gap-1.5">
+          <p className="text-xs font-semibold text-[#a855f7] uppercase tracking-widest flex items-center justify-center gap-1.5">
             <Palette className="w-3.5 h-3.5" />
             Graphic Designer
           </p>
         </div>
 
-        {/* Loading Progress Bar */}
+        {/* Loading Progress Line (Fully Visible Glowing Purple Gradient) */}
         <div className="w-64 mx-auto space-y-2">
-          <div className="h-1.5 w-full rounded-full bg-black overflow-hidden border border-white/20 p-0.5">
+          <div className="h-2 w-full rounded-full bg-neutral-900 overflow-hidden border border-white/20 p-0.5 shadow-inner">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-300 transition-all duration-100 shadow-sm shadow-brand-500"
+              className="h-full rounded-full bg-gradient-to-r from-purple-600 via-[#a855f7] to-purple-300 transition-all duration-100 shadow-md shadow-purple-500/50"
               style={{ width: `${progress}%` }}
             />
           </div>
           <div className="flex justify-between text-[11px] font-mono text-slate-400">
             <span>Loading Portfolio...</span>
-            <span className="text-brand-400 font-bold">{progress}%</span>
+            <span className="text-[#a855f7] font-bold">{progress}%</span>
           </div>
         </div>
 

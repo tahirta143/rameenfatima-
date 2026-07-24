@@ -1,9 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ShoppingBag, Store, Image as ImageIcon, Palette, Globe, Sparkles, ArrowUpRight, BookOpen } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function Services() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardsGridRef = useRef<HTMLDivElement>(null);
+
   const servicesList = [
     {
       id: 'amazon',
@@ -57,15 +63,69 @@ export default function Services() {
     },
   ];
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // Header entrance from top
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: -35, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            end: 'bottom top',
+            toggleActions: 'restart none none reset',
+          },
+        }
+      );
+
+      // Cards horizontal left/right slide entrance matching Skills component smoothness
+      if (cardsGridRef.current) {
+        const cards = Array.from(cardsGridRef.current.children);
+        cards.forEach((card, index) => {
+          const directionX = index % 2 === 0 ? -90 : 90;
+
+          gsap.fromTo(
+            card,
+            { opacity: 0, x: directionX, scale: 0.95 },
+            {
+              opacity: 1,
+              x: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power3.out',
+              delay: index * 0.08,
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: 'top 75%',
+                end: 'bottom top',
+                toggleActions: 'restart none none reset',
+              },
+            }
+          );
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="services" className="py-24 site-bg transition-colors duration-500 relative overflow-hidden">
-      {/* Subtle Teal Glow Backdrop */}
+    <section ref={sectionRef} id="services" className="py-24 site-bg transition-colors duration-500 relative overflow-hidden">
+      {/* Subtle Purple Glow Backdrop */}
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-[#8b5cf6]/10 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Header */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
+        <div ref={headerRef} className="text-center space-y-4 max-w-3xl mx-auto mb-16 opacity-0">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-neutral-800 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
             <Sparkles className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
             <span>My Services</span>
@@ -79,13 +139,13 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={cardsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicesList.map((service) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.id}
-                className="service-card group relative rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 hover:border-[#8b5cf6] transition-colors duration-200 shadow-sm flex flex-col justify-between"
+                className="service-card group relative rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 hover:border-[#8b5cf6] transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-[#8b5cf6]/10 flex flex-col justify-between opacity-0"
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
@@ -131,3 +191,4 @@ export default function Services() {
     </section>
   );
 }
+

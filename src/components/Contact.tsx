@@ -1,7 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, Linkedin, Send, Sparkles, Check, MessageSquare, Copy, MapPin } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,6 +14,83 @@ export default function Contact() {
   });
 
   const [copied, setCopied] = useState<string | null>(null);
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const detailsColRef = useRef<HTMLDivElement>(null);
+  const formColRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // Header reveal from top
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: -35, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            end: 'bottom top',
+            toggleActions: 'restart none none reset',
+          },
+        }
+      );
+
+      // Details column cards slide in from Left (-90px) matching Skills.tsx smoothness
+      if (detailsColRef.current) {
+        const detailCards = Array.from(detailsColRef.current.children);
+        detailCards.forEach((card, index) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0, x: -90, scale: 0.95 },
+            {
+              opacity: 1,
+              x: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power3.out',
+              delay: index * 0.08,
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: 'top 75%',
+                end: 'bottom top',
+                toggleActions: 'restart none none reset',
+              },
+            }
+          );
+        });
+      }
+
+      // Form column slides in from Right (+90px) matching Skills.tsx smoothness
+      gsap.fromTo(
+        formColRef.current,
+        { opacity: 0, x: 90, scale: 0.95 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 1,
+          ease: 'power3.out',
+          delay: 0.15,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+            end: 'bottom top',
+            toggleActions: 'restart none none reset',
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleCopy = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
@@ -31,14 +110,14 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 site-bg transition-colors duration-500 relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="py-24 site-bg transition-colors duration-500 relative overflow-hidden">
       {/* Glow */}
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#8b5cf6]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
+        <div ref={headerRef} className="text-center space-y-4 max-w-3xl mx-auto mb-16 opacity-0">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-neutral-800 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
             <Sparkles className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
             <span>Get In Touch</span>
@@ -54,10 +133,10 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
           {/* Details */}
-          <div className="lg:col-span-5 space-y-6">
+          <div ref={detailsColRef} className="lg:col-span-5 space-y-6">
 
             {/* Location */}
-            <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-6 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md flex items-center justify-between">
+            <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-6 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md flex items-center justify-between opacity-0">
               <div className="flex items-center gap-4">
                 <div className="p-3.5 rounded-2xl bg-slate-100 dark:bg-black text-slate-900 dark:text-[#8b5cf6] border border-slate-200 dark:border-neutral-800">
                   <MapPin className="w-6 h-6" />
@@ -70,7 +149,7 @@ export default function Contact() {
             </div>
 
             {/* WhatsApp */}
-            <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-6 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md flex items-center justify-between">
+            <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-6 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md flex items-center justify-between opacity-0">
               <div className="flex items-center gap-4">
                 <div className="p-3.5 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                   <Phone className="w-6 h-6" />
@@ -98,7 +177,7 @@ export default function Contact() {
             </div>
 
             {/* Email */}
-            <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-6 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md flex items-center justify-between">
+            <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-6 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md flex items-center justify-between opacity-0">
               <div className="flex items-center gap-4">
                 <div className="p-3.5 rounded-2xl bg-slate-100 dark:bg-black text-slate-900 dark:text-[#8b5cf6] border border-slate-200 dark:border-neutral-800">
                   <Mail className="w-6 h-6" />
@@ -124,7 +203,7 @@ export default function Contact() {
             </div>
 
             {/* LinkedIn */}
-            <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-6 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md flex items-center justify-between">
+            <div className="rounded-3xl bg-white dark:bg-[#0d0d0d] p-6 border border-slate-200 dark:border-[#8b5cf6]/20 shadow-md flex items-center justify-between opacity-0">
               <div className="flex items-center gap-4">
                 <div className="p-3.5 rounded-2xl bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/30">
                   <Linkedin className="w-6 h-6" />
@@ -155,7 +234,7 @@ export default function Contact() {
           </div>
 
           {/* Form */}
-          <div className="lg:col-span-7 rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 sm:p-10 border border-slate-200 dark:border-[#8b5cf6]/30 shadow-lg">
+          <div ref={formColRef} className="lg:col-span-7 rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 sm:p-10 border border-slate-200 dark:border-[#8b5cf6]/30 shadow-lg opacity-0">
             <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
               <MessageSquare className="w-6 h-6 text-[#7c3aed] dark:text-[#8b5cf6]" />
               Instant WhatsApp Project Inquiry
@@ -220,7 +299,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-[#8b5cf6] hover:bg-[#7c3aed] py-4 rounded-xl font-extrabold text-slate-950 text-sm flex items-center justify-center gap-2 transition-colors duration-200"
+                className="w-full bg-[#8b5cf6] hover:bg-[#7c3aed] py-4 rounded-xl font-extrabold text-slate-950 text-sm flex items-center justify-center gap-2 transition-colors duration-200 shadow-md shadow-[#8b5cf6]/25"
               >
                 <Send className="w-4 h-4 fill-slate-950 stroke-slate-950" />
                 <span>Send WhatsApp Message to Rameen</span>
@@ -234,3 +313,4 @@ export default function Contact() {
     </section>
   );
 }
+

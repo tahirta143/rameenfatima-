@@ -1,9 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Star, Sparkles, Quote } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function Testimonials() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
   const reviews = [
     {
       id: 1,
@@ -31,12 +37,72 @@ export default function Testimonials() {
     },
   ];
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // Header reveal
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: -35, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            end: 'bottom top',
+            toggleActions: 'restart none none reset',
+          },
+        }
+      );
+
+      // Grid cards left, center, right horizontal slide reveal (matching Skills.tsx smoothness)
+      if (gridRef.current) {
+        const reviewCards = Array.from(gridRef.current.children);
+        reviewCards.forEach((card, index) => {
+          let fromX = 0;
+          let fromY = 0;
+
+          if (index === 0) fromX = -90;
+          else if (index === 1) fromY = 50;
+          else if (index === 2) fromX = 90;
+
+          gsap.fromTo(
+            card,
+            { opacity: 0, x: fromX, y: fromY, scale: 0.94 },
+            {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power3.out',
+              delay: index * 0.1,
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: 'top 75%',
+                end: 'bottom top',
+                toggleActions: 'restart none none reset',
+              },
+            }
+          );
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="testimonials" className="py-24 site-bg transition-colors duration-500 relative overflow-hidden">
+    <section ref={sectionRef} id="testimonials" className="py-24 site-bg transition-colors duration-500 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Header */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
+        <div ref={headerRef} className="text-center space-y-4 max-w-3xl mx-auto mb-16 opacity-0">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-neutral-800 text-[#7c3aed] dark:text-[#8b5cf6] text-xs font-bold uppercase tracking-wider shadow-sm">
             <Sparkles className="w-4 h-4 text-[#7c3aed] dark:text-[#8b5cf6]" />
             <span>Client Feedback</span>
@@ -49,11 +115,11 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reviews.map((rev) => (
             <div
               key={rev.id}
-              className="testimonial-card relative rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 hover:border-[#8b5cf6] transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between opacity-100"
+              className="testimonial-card relative rounded-3xl bg-white dark:bg-[#0d0d0d] p-8 border border-slate-200 dark:border-white/15 hover:border-[#8b5cf6] transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between opacity-0"
             >
               <div className="space-y-4">
                 <Quote className="w-8 h-8 text-[#8b5cf6]/60" />
@@ -80,3 +146,4 @@ export default function Testimonials() {
     </section>
   );
 }
+

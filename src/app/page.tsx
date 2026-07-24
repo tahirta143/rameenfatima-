@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import Preloader from '../components/Preloader';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -10,9 +11,14 @@ import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
+const ThreeCanvas = dynamic(() => import('../components/ThreeCanvas'), {
+  ssr: false,
+});
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black dark:bg-black light:bg-white text-white dark:text-white light:text-slate-900 transition-colors duration-500 overflow-hidden">
+    <main className="relative min-h-screen bg-black dark:bg-black light:bg-white text-white dark:text-white light:text-slate-900 transition-colors duration-500 overflow-x-clip">
+      <ThreeCanvas />
       <Preloader />
       <Navbar />
       <Hero />

@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Rameen Fatima - Graphic Designer Portfolio | Amazon Product & Shopify Designer',
   description:
-    'Official portfolio of Rameen Fatima, professional Graphic Designer with 1.5+ years of experience specializing in Amazon product listing images, Shopify store design, posters, logos, and WordPress website design.',
+    'Official portfolio of Rameen Fatima, professional Graphic Designer with 3+ years of experience specializing in Amazon product listing images, Shopify store design, posters, logos, and WordPress website design.',
   keywords: [
     'Rameen Fatima',
     'Graphic Designer',
@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
-      <body className={`${inter.className} bg-[#0b0f19] text-slate-100 antialiased selection:bg-brand-500 selection:text-white`}>
+      <body className={`${inter.className} site-bg antialiased selection:bg-[#8b5cf6] selection:text-white`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
         </ThemeProvider>
